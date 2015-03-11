@@ -196,17 +196,25 @@ attach(daily_pattern_aggregated)
 ```
 
 ```
+## The following objects are masked from daily_pattern_aggregated (pos = 3):
+## 
+##     absolute.interval, average.steps, interval, weekends_or_not
+## 
 ## The following objects are masked from daily_pattern_aggregated (pos = 4):
 ## 
 ##     absolute.interval, average.steps, interval, weekends_or_not
 ## 
-## The following objects are masked from daily_pattern_aggregated (pos = 5):
+## The following objects are masked from daily_pattern_aggregated (pos = 6):
+## 
+##     absolute.interval, average.steps, interval, weekends_or_not
+## 
+## The following objects are masked from daily_pattern_aggregated (pos = 7):
 ## 
 ##     average.steps, interval, weekends_or_not
 ```
 
 ```r
-xyplot(average.steps~absolute.interval|weekends_or_not, main = "Daily Steps Pattern", ylab = "Average Steps", xlab = "Time intervals", type = "l")
+xyplot(average.steps~absolute.interval|weekends_or_not, main = "Daily Steps Pattern", ylab = "Average Steps", xlab = "Time intervals", type = "l", aspect = "xy")
 ```
 
 ![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png) 
