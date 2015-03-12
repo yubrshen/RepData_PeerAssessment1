@@ -145,8 +145,7 @@ Actually draw the time series for both weekends and weekday.
 
 ```{r}
 require(lattice)
-attach(daily_pattern_aggregated)
-xyplot(average.steps~absolute.interval|weekends_or_not, main = "Daily Steps Pattern", ylab = "Average Steps", xlab = "Time intervals", type = "l", aspect = "xy")
+xyplot(average.steps~absolute.interval|weekends_or_not, daily_pattern_aggregated, main = "Daily Steps Pattern", ylab = "Average Steps", xlab = "Time intervals", type = "l", aspect = "xy")
 ```
 
 The difference of daily pattern may be better identified by the distributions of the average steps:

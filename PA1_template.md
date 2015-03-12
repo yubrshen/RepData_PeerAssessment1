@@ -35,6 +35,22 @@ names(data)
 
 ```r
 library(dplyr)
+```
+
+```
+## 
+## Attaching package: 'dplyr'
+## 
+## The following object is masked from 'package:stats':
+## 
+##     filter
+## 
+## The following objects are masked from 'package:base':
+## 
+##     intersect, setdiff, setequal, union
+```
+
+```r
 daily <- data %>% group_by(date) %>% summarize(daily.steps = sum(steps))
 ```
 
@@ -156,6 +172,13 @@ Create a new factor variable, weekends_or_not, in the dataset with two levels --
 
 ```r
 library(lubridate)
+```
+
+```
+## Warning: package 'lubridate' was built under R version 3.1.3
+```
+
+```r
 data_day_of_week <- data %>% 
   mutate(weekends_or_not = factor(wday(ymd(data$date), label=TRUE) %in% c("Sun", "Sat"), labels = c("weekday", "weekend"))) 
 ```
@@ -192,29 +215,14 @@ Actually draw the time series for both weekends and weekday.
 
 ```r
 require(lattice)
-attach(daily_pattern_aggregated)
 ```
 
 ```
-## The following objects are masked from daily_pattern_aggregated (pos = 3):
-## 
-##     absolute.interval, average.steps, interval, weekends_or_not
-## 
-## The following objects are masked from daily_pattern_aggregated (pos = 4):
-## 
-##     absolute.interval, average.steps, interval, weekends_or_not
-## 
-## The following objects are masked from daily_pattern_aggregated (pos = 6):
-## 
-##     absolute.interval, average.steps, interval, weekends_or_not
-## 
-## The following objects are masked from daily_pattern_aggregated (pos = 7):
-## 
-##     average.steps, interval, weekends_or_not
+## Loading required package: lattice
 ```
 
 ```r
-xyplot(average.steps~absolute.interval|weekends_or_not, main = "Daily Steps Pattern", ylab = "Average Steps", xlab = "Time intervals", type = "l", aspect = "xy")
+xyplot(average.steps~absolute.interval|weekends_or_not, daily_pattern_aggregated, main = "Daily Steps Pattern", ylab = "Average Steps", xlab = "Time intervals", type = "l", aspect = "xy")
 ```
 
 ![plot of chunk unnamed-chunk-16](figure/unnamed-chunk-16-1.png) 
